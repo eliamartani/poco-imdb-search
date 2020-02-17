@@ -1,5 +1,5 @@
 <script context="module">
-  import {writable} from 'svelte/store';
+  import { writable } from 'svelte/store';
 
   // exportable property
   export const imdbID = writable('');

@@ -1,5 +1,5 @@
 <script context="module">
-  import {writable} from 'svelte/store';
+  import { writable } from 'svelte/store';
 
   // exportable property
   export const search = writable('');
@@ -14,7 +14,7 @@
 
   // handlers
   const handleSearch = debounce(evt => {
-    const {value} = evt.target;
+    const { value } = evt.target;
 
     isSearching = value && value.length > 2;
 
@@ -45,7 +45,7 @@
   }
 
   input {
-    background: url('/assets/icon_search.svg');
+    background: url('./assets/icon_search.svg');
     background-color: #fff;
     background-position: center right 20px;
     background-repeat: no-repeat;
@@ -103,7 +103,7 @@
 </style>
 
 <div class="header" class:header--searching={isSearching}>
-  <img src="/assets/icon_movie.svg" alt="Movie Search" />
+  <img src="./assets/icon_movie.svg" alt="Movie Search" />
 
   <h1>Movie Search</h1>
 

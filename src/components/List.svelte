@@ -1,12 +1,12 @@
 <script>
   import Button from './CustomButton.svelte';
   import Loading from './Loading.svelte';
-  import ListItem, {imdbID} from './ListItem.svelte';
+  import ListItem, { imdbID } from './ListItem.svelte';
   import Movie from './Movie.svelte';
   import Result from './Result.svelte';
 
-  import {search} from './Header.svelte';
-  import {fetchMovies, getMovie} from '../service/movies';
+  import { search } from './Header.svelte';
+  import { fetchMovies, getMovie } from '../service/movies';
   import debounce from '../shared/debounce';
 
   const timeoutScroll = 200;
@@ -31,7 +31,7 @@
     try {
       showLoading = true;
 
-      const {data} = await fetchMovies(searchText, page);
+      const { data } = await fetchMovies(searchText, page);
 
       if (data.Error) {
         errorMessage = data.Error;
@@ -53,7 +53,7 @@
     try {
       showLoading = true;
 
-      const {data} = await getMovie(id);
+      const { data } = await getMovie(id);
 
       movie = data;
     } catch (err) {
