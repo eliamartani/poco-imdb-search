@@ -21,7 +21,7 @@
   }
 
   .modal__close {
-    background: url('./assets/icon_close.svg');
+    background: url('../assets/icon_close.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 40px 40px;

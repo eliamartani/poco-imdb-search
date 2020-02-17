@@ -45,7 +45,7 @@
   }
 
   input {
-    background: url('./assets/icon_search.svg');
+    background: url('../assets/icon_search.svg');
     background-color: #fff;
     background-position: center right 20px;
     background-repeat: no-repeat;
