@@ -2,28 +2,48 @@
   import { writable } from 'svelte/store';
 
   // exportable property
-  export const imdbID = writable('');
+  export const imdbIDStore = writable('');
+  export const buttonRefStore = writable(null);
 </script>
 
 <script>
   export let item;
+
+  let buttonRef;
 
   $: imageNotFound = item.Poster === 'N/A';
   $: backgroundImage = !imageNotFound ? item.Poster : '';
 
   // handler
   const handleClick = () => {
-    imdbID.set(item.imdbID);
+    imdbIDStore.set(item.imdbID);
+    buttonRefStore.set(buttonRef);
   };
+
+  // subscriptions
+  imdbIDStore.subscribe(val => {
+    if (val) {
+      return;
+    }
+
+    if ($buttonRefStore && $buttonRefStore.focus) {
+      $buttonRefStore.focus();
+    }
+    buttonRefStore.set(null);
+  });
 </script>
 
 <style>
-  a {
+  button {
+    appearance: none;
+    background: transparent;
+    border: 0;
     color: #000;
-    text-decoration: none;
+    padding: 0;
+    text-align: left;
   }
 
-  a:hover {
+  button:hover {
     color: #24b3b3;
   }
 
@@ -70,7 +90,7 @@
   }
 </style>
 
-<a class="item" href="javascript:;" on:click={handleClick}>
+<button class="item" on:click={handleClick} bind:this={buttonRef}>
   <div
     aria-label={item.Title}
     class="item__poster"
@@ -82,4 +102,4 @@
     <h2 title={item.Title}>{item.Title}</h2>
     <p>{item.Year}</p>
   </div>
-</a>
+</button>

@@ -1,5 +1,16 @@
 <script>
+  import { onMount } from 'svelte';
+
   export let handleClose = () => {};
+
+  let buttonRef;
+
+  onMount(() => {
+    // fix: can't focus on mount because of animation haven't ended
+    setTimeout(() => {
+      buttonRef.focus();
+    }, 100);
+  });
 </script>
 
 <style>
@@ -78,7 +89,11 @@
 </style>
 
 <div class="modal">
-  <button class="modal__close" aria-label="Close" on:click={handleClose} />
+  <button
+    class="modal__close"
+    aria-label="Close"
+    on:click={handleClose}
+    bind:this={buttonRef} />
   <article class="modal__container">
     <slot />
   </article>

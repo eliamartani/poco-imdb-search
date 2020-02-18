@@ -1,11 +1,11 @@
 <script>
   import Button from './CustomButton.svelte';
   import Loading from './Loading.svelte';
-  import ListItem, { imdbID } from './ListItem.svelte';
+  import ListItem, { imdbIDStore } from './ListItem.svelte';
   import Movie from './Movie.svelte';
   import Result from './Result.svelte';
 
-  import { search } from './Header.svelte';
+  import { searchStore } from './Header.svelte';
   import { fetchMovies, getMovie } from '../service/movies';
   import debounce from '../shared/debounce';
 
@@ -79,11 +79,11 @@
   };
 
   const handleClose = () => {
-    imdbID.set('');
+    imdbIDStore.set('');
   };
 
-  // subscribe to search
-  imdbID.subscribe(async id => {
+  // subscriptions
+  imdbIDStore.subscribe(async id => {
     movie = null;
 
     if (id) {
@@ -91,7 +91,7 @@
     }
   });
 
-  search.subscribe(text => {
+  searchStore.subscribe(text => {
     searchText = text.trim();
 
     resetData();
@@ -145,7 +145,7 @@
 
 <div class="list" class:list--show={showResult} bind:this={container}>
   <div class="list__container">
-    <Result search={$search} {totalRecords} />
+    <Result search={$searchStore} {totalRecords} />
 
     {#if !!errorMessage}
       <p>{errorMessage}</p>

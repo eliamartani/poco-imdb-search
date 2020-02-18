@@ -2,7 +2,7 @@
   import { writable } from 'svelte/store';
 
   // exportable property
-  export const search = writable('');
+  export const searchStore = writable('');
 </script>
 
 <script>
@@ -18,7 +18,7 @@
 
     isSearching = value && value.length > 2;
 
-    search.set(value);
+    searchStore.set(value);
   }, timeoutTyping);
 </script>
 
