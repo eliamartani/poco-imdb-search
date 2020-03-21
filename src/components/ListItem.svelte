@@ -1,12 +1,6 @@
-<script context="module">
-  import { writable } from 'svelte/store';
-
-  // exportable property
-  export const imdbIDStore = writable('');
-  export const buttonRefStore = writable(null);
-</script>
-
 <script>
+  import { imdbIDStore, buttonRefStore } from '../shared/writable';
+
   export let item;
 
   let buttonRef;

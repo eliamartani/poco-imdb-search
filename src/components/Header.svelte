@@ -1,12 +1,6 @@
-<script context="module">
-  import { writable } from 'svelte/store';
-
-  // exportable property
-  export const searchStore = writable('');
-</script>
-
 <script>
   import debounce from '../shared/debounce';
+  import { searchStore } from '../shared/writable';
 
   // internal
   const timeoutTyping = 500;

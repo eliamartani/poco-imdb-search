@@ -1,13 +1,13 @@
 <script>
   import Button from './CustomButton.svelte';
   import Loading from './Loading.svelte';
-  import ListItem, { imdbIDStore } from './ListItem.svelte';
+  import ListItem from './ListItem.svelte';
   import Movie from './Movie.svelte';
   import Result from './Result.svelte';
 
-  import { searchStore } from './Header.svelte';
   import { fetchMovies, getMovie } from '../service/movies';
   import debounce from '../shared/debounce';
+  import { imdbIDStore, searchStore } from '../shared/writable';
 
   const timeoutScroll = 200;
   const resultsPerRequest = 10;
