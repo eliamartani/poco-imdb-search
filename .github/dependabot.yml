@@ -1,0 +1,41 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: rollup
+    versions:
+    - 2.38.3
+    - 2.38.4
+    - 2.38.5
+    - 2.39.1
+    - 2.41.0
+    - 2.41.1
+    - 2.41.3
+    - 2.41.4
+    - 2.41.5
+    - 2.42.0
+    - 2.42.2
+    - 2.42.3
+    - 2.44.0
+    - 2.45.0
+    - 2.45.1
+    - 2.45.2
+    - 2.46.0
+  - dependency-name: svelte
+    versions:
+    - 3.32.2
+    - 3.32.3
+    - 3.34.0
+    - 3.35.0
+    - 3.36.0
+  - dependency-name: "@rollup/plugin-replace"
+    versions:
+    - 2.4.0
+    - 2.4.1
+  - dependency-name: "@rollup/plugin-node-resolve"
+    versions:
+    - 11.2.0
